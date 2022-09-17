@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    cout << "Enter first number: " << endl;
+    int numberone;
+    cin >> numberone;
+    cout << "Enter second number: " << endl;
+    int numbertwo;
+    cin >> numbertwo;
+    cout << "Enter third number: " << endl;
+    int numberthree;
+    cin >> numberthree;
+
+    if (numberone < numbertwo && numbertwo < numberthree)
+    {
+        cout << "Increasing" << endl;
+    }
+    else if (numberone > numbertwo && numbertwo > numberthree)
+    {
+        cout << "Decreasing" << endl;
+    }
+    else{
+        cout << "Neither" << endl;
+    }
+
+    return 0;
+
+
+}
