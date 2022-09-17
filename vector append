@@ -1,0 +1,28 @@
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> append(vector<int> v1, vector<int> v2){ //creates function that appends one vector after another
+vector<int> merge; //calls back function to merge vectors together
+
+for (int i = 0; i < v1.size(); i++){ //uses for loop to increase size of first vector
+merge.push_back(v1.at(i)); //is able to find the location of each vector
+}
+
+for (int i = 0; i < v2.size(); i++){ //uses for loop to increase size of second vector
+merge.push_back(v2.at(i)); //is able to find the location of each vector
+}
+return merge; //returns the values from for loops
+}
+
+int main(){
+
+vector<int> v1 = {1, 4, 9, 16}; //uses numbers provided in excercise
+vector<int> v2 = {9, 7, 4, 9, 11}; //uses numbers provided in excercise
+vector<int> result = append(v1, v2);
+
+for (int i = 0; i < result.size(); i++){
+cout << result.at(i) << " "; //returns the results of the two vectors appended one after another based upon the numbers specified in the example
+}
+}
