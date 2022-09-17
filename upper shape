@@ -1,0 +1,23 @@
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    cout << "Input side length: " << endl; //asks user for input on length
+    int length;
+    int j;
+    cin >> length; //takes in user input
+
+    cout << "Shape: " << endl; //describes image below as shape
+
+    for (int i = 1; i <= length; i++){ //for loop allows for i to be compared to length
+        for (j = 1; j < i; j++){ //nested for loop allows for second variable to be created, and when compared to i, it determines whether a space is outputted or not
+            cout << " ";
+        }
+        for (j = i; j <= length; j++){// when comparing j to length, depending on how it is compared, an asterisk is outputted in place of a space
+            cout << "*";
+        }
+        cout << endl; //ends line when space is completely filled
+    }
+    return 0; //ends program after image is completely printed.
+}
