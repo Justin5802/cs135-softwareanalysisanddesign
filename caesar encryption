@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+char shiftChar (char c, int rshift); //create character that introduces shift
+string encryptCaesar (string plaintext, int rshift); //creates a string that will be utilized to encrypt words into Caesar
+
+int main(){
+    string text; //creates string of text
+    int shift; //creates integer of shift
+
+    cout << "Enter plaintext: " << endl; //asks user to input test
+    getline(cin, text); //program reads input and corresponding text
+
+    cout << "Enter shift: " << endl;//asks user to enter a value
+    cin >> shift; //takes in user input
+
+    cout << "Ciphertext: " << endl;
+    cout << encryptCaesar(text, shift) << endl; //outputs the encrypted ciphertext based upon what the user inputted
+
+return 0;
+}
+
+char shiftChar(char c, int rshift) { //the function that determines how the characters are shifted to represent cipher text
+if(c >= 'a' && c <='z')
+return 'a' + ((c - 'a' + rshift) % 26);
+else
+return 'A' + ((c - 'A' + rshift) % 26);
+}
+
+string encryptCaesar (string plaintext, int rshift) { //the string that encrypts the user statement
+for(int i = 0; i < plaintext.length();i++) {
+char c = plaintext[i];
+if((c >= 'a' && c  <= 'z') || (c >='A' && c <='Z')) {
+plaintext[i] = shiftChar( plaintext[i], rshift);
+}
+}
+return plaintext; //after utilizing an if statement to shift the characters, and returns the statement
+}
