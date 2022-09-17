@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool isTwinPrime(int n); //uses boolean variable to determine if number inputted is a twin prime
+
+bool isPrime(int n);//uses previous variable to determine if number is also a prime number
+
+int main()
+{
+bool prime;
+cout<< "Enter a number: ";//takes in user input to create number
+int n;
+cin >> n;
+
+prime = isTwinPrime(n);//uses boolean variable to determine if prime number is twin prime number
+if(prime == true)
+cout<< n << " " << "is a twin prime" << endl;//if true, then output is that number is a twin prime
+else
+cout<< n << " " << "is not a twin prime" << endl;//if false, then output is that number is not a twin prime
+return 0;
+}
+
+bool isTwinPrime(int n){
+if(((isPrime(n)&& isPrime(n-2))==true) || ((isPrime(n)&& isPrime(n+2))==true)) //by determining in an or statement if the twin prime is true or false
+return true;
+else
+return false;
+}
+
+bool isPrime(int n){//we can also utilize the same if statement from previous functions to see if number is a prime number but not a twin prime number
+    if (n < 2)
+    return false;
+    for (int i = 2; i <= sqrt(n); i++){
+        if (n % i == 0)
+        return false;
+    }
+return true;
+//cool
+}
