@@ -1,0 +1,70 @@
+#include<iostream>
+#include<fstream>
+#include<cstdlib>
+#include<climits>
+#include <string>
+using namespace std;
+
+int main()
+
+{
+string date;
+string starting_date;
+string ending_date;
+double eastSt;
+double eastEl;
+double westSt;
+double westEl;
+double max;
+
+int dateRange=0;
+
+cout<< "Enter the starting date: " << endl;
+cin>> starting_date;
+
+cout<< "Enter the ending date: " << endl;
+cin>> ending_date;
+
+ifstream fin("Current_Reservoir_Levels.tsv");
+
+if(fin.fail())
+   {
+       cerr << "File cannot be opened for reading." << endl;
+       exit(1);
+   }
+
+
+string junk;
+getline(fin, junk);
+
+while(fin >> date >> eastSt >> eastEl >> westSt >> westEl)
+{
+fin.ignore(INT_MAX, '\n');
+if (date == starting_date)
+{
+dateRange = 1;
+}
+if (dateRange == 1)
+{
+if(eastEl > westEl)
+{cout<< date << " "<< "East " <<endl;}
+
+else if (eastEl < westEl)
+
+{cout<< date << " " << "West" <<endl;}
+
+else if (eastEl == westEl )
+
+{cout<< date << " " << "Equal" <<endl;}
+
+}
+
+if (date == ending_date)
+
+{dateRange= 0;}
+
+}
+
+return 0;
+
+}
