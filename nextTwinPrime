@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+bool isPrime(int n) {//checks if number is prime number from previous functions
+    if (n <= 1)
+        return false; //if less than or equal to one, it returns a value of false
+    for (int i = 2; i < n; i++)
+        if (n % i == 0)
+            return false;//same goes for if n is less than i, or if remainder is equal to 0
+    return true;
+}
+
+int nextTwinPrime(int n) {
+   n++;
+  while (1) {
+    if ((isPrime(n) && isPrime(n+2)) || (isPrime(n) && isPrime(n-2))) {//checks the values of isPrime in or statement to determine the next twin prime
+      return n;//returns the value of the number after checking
+    }
+    n++;
+  }
+}
+
+int main() {
+  cout << "Enter a number: " << endl;//asks user for input of number
+  int n;//takes in user input
+  int prime;//creates a variable for prime number
+  cin >> n;
+
+  prime = nextTwinPrime(n);//integer is equal to the next twin prime, which is the value added by 2
+
+  cout << "nextTwinPrime" << "(" << n << ")" << " " << "==" << " " << prime << endl;//outputs the value of the next twin prime
+  return 0;//after finishing output, the program ends.
+}
