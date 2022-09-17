@@ -1,0 +1,47 @@
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool isPrime(int n){//checks for boolean variable with an integer of n
+
+if( n <= 0){//if less than or equal to zero, then return false
+return false;
+}
+if (n == 2) {//if n is equal to 2, return the value of true
+return true;
+}
+if (n % 2 == 0) {//if remainder between n and two is equal to zero, return false
+return false;
+}
+for(int i=3; i <= sqrt(n); i += 2){
+if(n%i == 0){
+return false;
+}
+}
+return true;//otherwise, return true
+}
+
+int largestTwinPrime(int a, int b){//create integer to find largest twin prime
+
+for (int i = b; i >= a; i--){//use nested for loop to find if number is prime through
+if ((isPrime(i) && isPrime(i-2)) || (isPrime(i) && isPrime(i+2)))//an if/or statement
+{
+return i;//if so, return the value of i
+}
+}
+return -1;// otherwise return value of -1
+}
+
+
+int main(){
+    int a;
+    int b;
+    cout << "Enter first value: ";//asks for user input
+    cin >> a;//saves user input
+    cout << "Enter second value: ";//asks for user input for second number
+    cin >> b;//saves user input
+
+    cout << "largestTwinPrime" << "(" << a << "," << b << ")" << "==" << largestTwinPrime(a,b) << endl;//outputs the largest twin prime based upon the two numbers that the user inputted
+    return 0;//after output is finished, end the program
+}
