@@ -1,0 +1,20 @@
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+cout << "Please input a value for L: " << endl; //asks user for value of L
+int L; //creates variable by input of user
+cin >> L;//uses input by user to create variable
+cout << "Please input a value for U: " << endl;//asks user for value of U
+int U;// creates variable by input of user
+cin >> U;//uses input by user to create variable
+
+for (int i = L; i < U; i++) //uses for loop to utilize the variables that user inputted to count up to the variable of U that the user inputted
+{
+    cout << i << endl; //the output is the increased counting by one starting from the variable of L, and ending before the variable of U is counted.
+}
+
+}
