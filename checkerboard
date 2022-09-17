@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    cout << "Input width: " << endl; //asks user for input width
+    int width;
+    cin >> width; //takes in user input
+
+    cout << "Input height: " << endl; //asks user for input height
+    int height;
+    cin >> height; //takes in user input
+
+    cout << "Shape: " << endl; //describes image below as shape
+
+    for (int i = 0; i < height; i++){ //uses variable i to compare to user input
+        for (int j = 0; j < width; j++){//nested for loop allows for variable j to compare to user input
+            if ((i + j) % 2 == 0)
+            cout << "*"; //if the sum of both variables divisible by two is equal to 0, print asterisk
+            else
+            cout << " "; //otherwise have a space between asterisks
+        }
+        cout << endl; 
+    }
+    return 0; //end program after image has been completely printed
+}
