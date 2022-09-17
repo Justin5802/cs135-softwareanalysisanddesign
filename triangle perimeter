@@ -1,0 +1,49 @@
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+struct Point { //creates structure of the point with variables x and y
+    double x;
+    double y;
+};
+
+struct Triangle { //constructs a triangle which will consist of exactly three points
+    Point point1;
+    Point point2;
+    Point point3;
+};
+
+double distance(Point a, Point b) { //writes the function that calls the distance between a and b
+    return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
+}
+
+double perimeter(Triangle triangle) { //uses the function that calculates the distance to find perimeter based upon the distances between points of the triangle
+    return distance(triangle.point1, triangle.point2) + distance(triangle.point2, triangle.point3) +
+           distance(triangle.point1, triangle.point3);
+}
+
+int main() { //main function
+    Point p1, p2, p3; //creates three variables for the points
+    cout << "Please enter x of the first point of this triangle: ";
+    cin >> p1.x; //asks user input for the x and y variables for each point of the triangle
+    cout << "Please enter y of the first point of this triangle: ";
+    cin >> p1.y;
+    cout << "Please enter x of the second point of this triangle: ";
+    cin >> p2.x;
+    cout << "Please enter y of the second point of this triangle: ";
+    cin >> p2.y;
+    cout << "Please enter x of the third point of this triangle: ";
+    cin >> p3.x;
+    cout << "Please enter y of the third point of this triangle: ";
+    cin >> p3.y;
+
+    Triangle t; //computes a triangle based upon the points and variables inputted by the user
+    t.point1 = p1;
+    t.point2 = p2;
+    t.point3 = p3;
+
+    cout << "The perimeter of this triangle is:  " << perimeter(t) << endl; //recalls the perimeter function to compute the perimeter of the triangle based upon the user inputs for the points of the triangle
+    return 0; //returns the function and ends program after perimeter is outputted
+}
