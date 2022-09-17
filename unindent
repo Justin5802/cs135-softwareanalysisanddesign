@@ -1,0 +1,27 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string removeLeadingSpaces(string line); //creates a function that takes one line of code as input and returns its copy without leading space and/or tabs
+
+int main() {
+string line;
+while(getline(cin, line)) {//allows program to read user input
+cout << removeLeadingSpaces(line) << endl; //uses the function to remove spaces from the user's program
+}
+return 0; //ends program after all spaces have been removes
+}
+
+string removeLeadingSpaces(string line) { //calls back the function that removes the spaces
+string result = ""; 
+bool check = true; //checks to see if the spaces that are removed are true
+
+for(int i = 0; i < line.size(); i++) {
+if(!(check && isspace(line[i]))) {
+result += line[i];
+check = false; //else then it checks the spaces removed as false after checking to see if there are spaces between the line
+}
+}
+return result; //after checking, it then returns the result of all of the white spaces and spaces between characters being removed entirely
+}
