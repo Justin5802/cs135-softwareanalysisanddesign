@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    cout << "Input size: " << endl; //asks for user input on size
+    int size;
+    cin >> size; //takes user input
+
+    cout << "Shape: " << endl; //describes image below as shape
+
+    for (int i = 0; i < size; i++){ //creates variable i to compare to user inputted size
+        for (int j = 0; j < size; j++){ //nested for loop creates another variable to be compared
+            if (i == j || j == (size-i-1)){ //an if loop compares the two variables to determine whether an asterisk should be inputted or not
+                cout << "*";
+            }
+            else{
+                cout << " "; //otherwise, a space between asterisks is printed instead
+            }
+        }
+        cout << endl; //ends line after available space is utilized
+    }
+    return 0; //ends program after image has been completely outputted.
+}
