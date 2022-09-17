@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    cout << "Enter the first number: " << endl;  //asks user to input first number
+    int numberone;
+    cin >> numberone;  //program takes in user's first input
+    cout << "Enter the second number: " << endl;  //asks user to input second number
+    int numbertwo;
+    cin >> numbertwo;  //program takes in user's second input
+    cout << "Enter the third number: " << endl; //asks user to input third number
+    int numberthree;
+    cin >> numberthree; //program takes in user's third input
+
+    if (numberone < numbertwo && numberone < numberthree)
+       cout << "The smaller of the three is: " << numberone << endl;  //uses if statement to compare first number with other two numbers to determine if it is the smallest one of the three
+    else if (numbertwo < numberthree && numbertwo < numberone)
+       cout << "The smaller of the three is: " << numbertwo << endl;  //uses else if statement to compare second number with other two numbers to determine if it is the smallest one of the three
+    else if (numberthree < numberone && numberthree < numberone) 
+       cout << "The smaller of the three is " << numberthree << endl; //uses else if statement to compare third number with other two numbers to determine if it is the smallest one of the three
+
+    return 0;
+}
