@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    cout << "Input width: " << endl; //asks user for input on width of box
+    int width;
+    cin >> width; //takes in user input
+
+    cout << "Input height: " << endl; //asks user for input on height of box
+    int height;
+    cin >> height; //takes in user input
+
+    cout << "Shape: " << endl; //title of box below
+
+    for (int i = 0; i < height; i++){ //first for loop takes into account the height of box first with variable i
+        for (int j = 0; j < width; j++){//second for loop takes into account the width of box second with variable j
+            cout << "*"; //output of symbol for box
+        }
+        cout << endl;//nested for loop in which both user variables are taken into account to produce the width and height of box based on dimensions produced by user
+    }
+    return 0; //after the box is printed, the program ends.
+}
