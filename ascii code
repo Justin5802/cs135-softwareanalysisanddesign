@@ -1,0 +1,16 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    string line; //create string
+    cout << "Input: "; //asks for user input
+    getline(cin, line); //reads string created by user input
+    for (int i = 0; i < line.size(); i++){//uses for statement to identify characters from user input
+        cout << line[i] << " " << (int)line[i] << endl; //outputs the inputted characters and corresponding ascii codes with exactly one space between them
+    }
+    return 0; //after finishing the output, the program ends
+
+    //dont stop believing
+}
