@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int myData[10] = {1,1,1,1,1,1,1,1,1,1};
+    int i;
+    int v;
+
+do{
+    cout << myData[0] << " ";
+    cout << myData[1] << " ";
+    cout << myData[2] << " ";
+    cout << myData[3] << " ";
+    cout << myData[4] << " ";
+    cout << myData[5] << " ";
+    cout << myData[6] << " ";
+    cout << myData[7] << " ";
+    cout << myData[8] << " ";
+    cout << myData[9] << " " << endl;
+   
+    cout << "Input index: " << endl;
+    cin >> i;
+    cout << "Input value: " << endl;
+    cin  >> v;
+    if (0 <= i && i < 10){
+        myData[i] = v;
+    }
+    else if (0 > i && i >= 10){
+        return 1;
+    }
+    }  while (0 <= i && i < 10);
+
+
+
+
+}
