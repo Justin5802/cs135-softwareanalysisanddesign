@@ -1,0 +1,45 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string removeLeadingSpaces(string line); //creates a function that takes one line of code as input and returns its copy without leading space and/or tabs
+int countChar(string line, char c); //creates an integer that can scan each line and return the number of occurrences of character "c"
+
+int main() {
+string line;
+int tabs = 0; //creates integer that checks to see how many blocks are currently open at the beginning of each line
+while (getline(cin, line)) { //allows program to read user input
+line = removeLeadingSpaces(line);
+tabs -= countChar(line, '}');
+for (int i = 0; i < tabs; i++) { //uses for loop to see how many spaces can be added in terms with the amount of spaces open and if i is less than the number of spaces open
+cout << "\t";//adds number of tabs at the beginning of each line
+} //detects using the for loop how much the indentation level should be reduced based upon the first character
+tabs += countChar(line, '{'); //counts the number of spaces for each character counted and then indents the closing curly braces accordingly
+cout << line << endl; //outputs the line with changes intact
+}
+return 0; //ends program after output is finished
+}
+
+string removeLeadingSpaces(string line) { //calls back the function that removes the spaces
+string result = "";
+bool check = true; //checks to see if the spaces that are removed are true
+
+for (int i = 0; i < line.size(); i++) {
+if (!(check && isspace(line[i]))) {
+result += line[i];
+check = false; //else then it checks the spaces removed as false after checking to see if there are spaces between the line
+}
+}
+return result; //after checking, it then returns the result of all of the white spaces and spaces between characters being removed entirely
+}
+
+int countChar(string line, char c) { //calls back the function that counts the character "c"
+int count = 0;
+for (int i = 0; i < line.size(); i++) {//uses for loop to initiate the count
+if(line[i] == c) {
+count++; //increases count for everytime that "c" is counted
+}
+}
+return count; //after checking, it then returns the result of the nnumber of occurances of the character "c"
+}
