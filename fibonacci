@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int fib[60]; //initiate array of sixty values
+    int i; //initiate the variable of i to compute fibonacci sequence independently
+    
+    fib[0] = 0; //find the first two terms of fibonacci sequence
+    fib[1] = 1;
+    
+    for (i=2; i < 60; i++ ) //use for loop to allow program to compute for i
+    fib[i] = fib[i-1] + fib[i-2]; //use formula to compute the remaining values of fibonacci sequence
+    
+    for (i = 0; i < 60; i++) //use for loop for program to compute all sixty values of fibonacci sequence
+    cout << fib[i] << endl; //outputs the sixty values of fibonacci sequence using i to reiterate for each value
+// epic comment 
+
+    return 0;
+    
+
+    
+}
