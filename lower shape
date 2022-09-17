@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    cout << "Input side length: " << endl; //asks user for input on length
+    int length;
+    cin >> length; //takes in user input
+
+    cout << "Shape: " << endl; //describes image below as shape
+
+    for (int i = 1; i <= length; i++){ //for loop begins with variable i at 1, comparing it to user input of length
+        for (int j = 1; j <= i; j++){ //nested for loop includes variable j, which is to be compared to variable i so it knows the value of i so it can properly descend in number of asterisks based on values inputted
+            cout << "*";
+        }
+        cout << endl; //ends the line for every asterisk inputted until i is equal to or less than zero
+    }
+    return 0; //program ends after image is completely printed
+}
+//end
