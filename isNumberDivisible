@@ -1,0 +1,38 @@
+
+#include <iostream>
+using namespace std;
+
+ bool isDivisibleBy(int n, int d) //creates boolean (true/false) variable that determines if number is divisible
+    {
+    if (d == 0){
+        cout << "False" << endl;
+        return 0;
+    }
+    else if (n % d == 0){
+        return true; //checks to see if the remainder of the division of n and d is equal to 0
+        } //if so, it returns a value of true
+    
+    else{
+        return false;
+    }   //otherwise, a value of false is returned
+        
+    }  
+    
+int main(){
+    cout << "Enter first value: " << endl;//prompts user to enter first value
+    int n;
+    cin >> n; //stores user input as variable
+    cout << "Enter second value: " << endl;//prompts user to enter second value
+    int d;
+    cin >> d;//stores user input as variable
+
+
+    if (isDivisibleBy(n, d) == true){//checks previous boolean variable to see if previous statement is true
+        cout  << "isDivisibleBy" << "(" << n << "," << d << ")" << " " << "==" << " " << "true"; //if so, yes is printed
+    }
+    else{
+        cout << "isDivisibleBy" << "(" << n << "," << d << ")" << " " << "==" << " " << "false";//otherwise, the answer is no
+    }
+
+return 0;  //program ends after output is detected.
+}
