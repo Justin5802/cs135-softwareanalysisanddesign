@@ -1,0 +1,63 @@
+
+#include <fstream>
+#include <iostream>
+#include <cstdlib>
+#include <climits>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main()
+{
+   ifstream fin("Current_Reservoir_Levels.tsv");
+   if (fin.fail())
+   {
+       cerr << "File cannot be opened for reading." << endl;
+       exit(1);
+   }
+
+   vector<string> Date;
+   vector<float> westElVec;
+   string header;
+   getline(fin, header); 
+   string dateArr[365], date;
+   double eastSt, eastEl, westSt, westEl;
+   string dateone, datetwo;
+   cout << "Enter earlier date: ";
+   cin >> dateone;
+  
+   cout << "Enter later date: ";
+   cin >> datetwo; 
+   int count = 0;
+   while (fin >> date >> eastSt >> eastEl >> westSt >> westEl)
+   {
+       fin.ignore(INT_MAX, '\n'); 
+      
+       if (dateone <= date && datetwo >= date)
+       {
+           Date.push_back(date);
+           westElVec.push_back(westEl);
+           count++;
+       }
+   }
+   for (int i = 0; i < count; i++)
+   {
+       for (int j = 0; j < count - i - 1; j++)
+       {
+           if (Date[j] < Date[j + 1])
+           {
+               double twestElVec = westElVec[j];
+               westElVec[j] = westElVec[j+1];
+               westElVec[j+1] = twestElVec;
+               string tDate = Date[j];
+               Date[j] = Date[j + 1];
+               Date[j + 1] = tDate;              
+           }
+       }
+   }  
+   for (int i = 0; i < count; i++)
+       cout << Date[i] << "\t" << westElVec[i] << endl;
+   fin.close();
+
+return 0;
+}
