@@ -1,0 +1,68 @@
+#include<iostream>
+using namespace std;
+
+class Circuit{ //creates new class that will hold the values of the two switches, as well as the light
+int switch1; //initializes variables for switch1
+int switch2; //initializes variables for switch2
+int lamp; //initializes variables for the lamp
+
+public: //creates public class for circuit
+
+Circuit(){
+switch1=0; //initilizes all variables to begin at 0
+switch2=0;
+lamp=0;
+}
+
+int get_first_switch_state(){
+return switch1; //returns the state of first switch
+}
+
+int get_second_switch_state(){
+return switch2; //returns the state of the second switch
+}
+
+int get_lamp_state(){
+return lamp; //returns the state of the lamp
+}
+
+
+
+void toggle_first_switch(){ //allows for the first switch to be manipulated/toggled
+switch1=(switch1==1?0:1); //allows for switch1 to change to different values based upon whether it is a 0 or 1; checks to see what value it is so that it can change to opposite value
+lamp=(lamp==1?0:1); //allows for lamp to change to different values based upon whether it is a 0 or 1; checks to see what value it is so that it can change to opposite value
+}
+
+
+
+void toggle_second_switch(){ //allows for the second switch to be manipulated/toggled
+switch2=(switch2==1?0:1); //allows for switch2 to change to different values based upon whether it is a 0 or 1; checks to see what value it is so that it can change to opposite value
+lamp=(lamp==1?0:1); //allows for switch2 to change to different values based upon whether it is a 0 or 1; checks to see what value it is so that it can change to opposite value
+}
+};
+
+int main(){
+Circuit c; //creates a circuit of c based upon prior established class
+
+cout<<"Initial state: "<<endl; //outputs the initial state of prior established variables
+cout<<"Switch1: "<<c.get_first_switch_state()<<endl;
+cout<<"Switch2: "<<c.get_second_switch_state()<<endl;
+cout<<"Lamp: "<<c.get_lamp_state()<<endl;
+
+cout<< "Let's toggle switch1" <<endl; //outputs a message to the user that switch1 is currently being toggled
+
+c.toggle_first_switch(); //uses established variable within the class to call back to a function that changes the value of switch1
+
+cout<<"Switch1: "<<c.get_first_switch_state()<<endl; //outputs the current states of prior established variables
+cout<<"Switch2: "<<c.get_second_switch_state()<<endl;
+cout<<"Lamp: "<<c.get_lamp_state()<<endl;
+
+cout << "Let's toggle switch2" <<endl; //outputs a message to the user that switch2 is currently being toggled
+c.toggle_second_switch(); //uses established variable within the class to call back to a function that changes the value of switch2
+
+cout<<"Switch1: "<<c.get_first_switch_state()<<endl; //outputs the current states of prior established variables
+cout<<"Switch2: "<<c.get_second_switch_state()<<endl;
+cout<<"Lamp: "<<c.get_lamp_state()<<endl;
+
+return 0; //after the toggling of nightswitches is complete, the program ends
+}
