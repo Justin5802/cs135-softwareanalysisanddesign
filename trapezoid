@@ -1,0 +1,35 @@
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    cout << "Input width: " << endl; //asks user for input on width of shape
+    int width;
+    cin >> width; //takes in user input
+
+    cout << "Input height: " << endl; //asks user for input on height of shape
+    int height;
+    cin >> height; //takes in user input
+
+    if (width % 2 == 0 && height > width/2){
+        cout << "Impossible shape!" << endl; //if the width is even/divisible by two, or larger than the given width, then the program will refute to print out the shape, noting that is is impossible
+    }
+    else if (width % 2 != 0 && height > (width/2 + 1)){
+        cout << "Impossible shape!" << endl;//if the width is even/divisible by two, or larger than the given width, then the program will refute to print out the shape, noting that is is impossible
+    }
+    else{
+        cout << "Shape: " << endl;//otherwise, if the dimensions are reasonable, the program goes on to print out the trapezoid given the user's inputted dimensions
+        int spaces = 0;  //creates new variable dedicated to the space of the trapezoid
+        for (int i = 1; i <= height; i++){//for loop creates variable i to compare with inputted height of shape
+            for (int j = 0; j < spaces; j++)//nested for loop compares variable j to number of spaces to indicate whether a space should be outputted
+            cout << " ";
+            for (int k = 1; k <= width; k++)//new variable k compares itself to inputted width of trapezoid to determine if asterisk should be outputted
+            cout << "*";
+
+            cout << endl; //ends line after available space is filled
+            width = width - 2;//allows for the width of trapezoid to gradually be decremented by 2
+            spaces++;//spaces gradually increase as the image is continually outputted
+        }
+    return 0; //program ends after image is completely printed.
+}
+}
