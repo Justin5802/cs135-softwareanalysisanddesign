@@ -1,0 +1,38 @@
+
+#include <iostream>
+using namespace std;
+
+int countPrimes(int a, int b); //creates integer that counts primes
+
+int main(){
+int a; //initializes variables
+int b;
+cout << "Enter first number: "; //asks user to enter first number
+cin >> a;
+cout<<"Enter second number: "; //asks user to enter second number
+cin >> b;
+cout << countPrimes(a,b);
+return 0;
+}
+
+
+int countPrimes(int a, int b) //creates the integer of counting primes outside of main function
+{
+int prime ,count=0;
+while (a <= b) //while first number is less than or equal to second value, initialize prime number at one
+{
+prime = 0;
+for(int i = 2;i <= a/2; i++)//use same for loop as determining if number is prime
+{
+if(a % i == 0)
+{
+prime = 1;
+break; //if number is not prime, end the program
+}
+}
+if(prime == 0 && a>1) //otherwise, begin the count
+count++;
+a++;
+}
+return count; //returns the value of the counting of prime numbers
+}
