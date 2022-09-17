@@ -1,0 +1,149 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string encryptCaesar(string plaintext, int rshift); //creates a string that will be utilized to encrypt words into Caesar
+string encryptVigenere(string plaintext, string keyword); //creates a string that will encrypt words into Vigenere
+
+string decryptCaesar(string ciphertext, int rshift); //creates a string that will be utilized to decrypt words into Caesar
+string decryptVigenere(string ciphertext, string keyword); //creates a string that will decrypt words into Vigenere
+
+string encryptCaesar(string plaintext, int rshift){
+ char c; //creates character from variable c
+
+for (int i = 0; plaintext[i] != '\0'; i++){ //use for statement to create string variable with integer i for encryption
+  c = plaintext[i];
+
+if (c >= 'a' && c <= 'z'){ //shifts character in relation to what letters are used
+  c = c + rshift;
+if (c > 'z'){
+ c = c - 'z' + 'a' - 1;
+}
+plaintext[i] = c;
+}
+else if (c >= 'A' && c <= 'Z'){ 
+c = c + rshift;
+if (c > 'Z'){
+ c = c - 'Z' + 'A' - 1;
+}
+ plaintext[i] = c;
+ }
+}
+ return plaintext; //after processing the characters in relation to how it is encrypted, return the function
+}
+
+string decryptCaesar(string ciphertext, int rshift){
+char c;
+
+for (int i = 0; ciphertext[i] != '\0'; i++){ //use prior established integers and characters to decrypt the previously encrypted statement
+    c = ciphertext[i];
+if (c >= 'a' && c <= 'z'){
+     c = c - rshift;
+if (c < 'a'){
+c = c + 'z' - 'a' + 1;
+ }
+ciphertext[i] = c;
+}
+else if (c >= 'A' && c <= 'Z'){
+ c = c - rshift;
+if (c < 'A'){ 
+c = c + 'Z' - 'A' + 1;
+}
+ciphertext[i] = c;
+ }
+}
+ return ciphertext; //returns the decrypted text based upon Caesar decryption
+}
+
+string encryptVigenere(string plaintext, string keyword) //creates a string that will encrypt words into Vigenere
+{
+string endResult = "";
+
+char character;
+int i = 0;
+int encryptionKey;
+
+for(int k = 0; k < plaintext.length(); k++)  //use for statement to create string variable with integer i for encryption
+{
+character = plaintext[k];
+
+if(character >= 'A' && character <= 'Z')  //shifts character in relation to what letters are used
+{
+encryptionKey = keyword[i] - 'a';
+i = (i + 1) % keyword.length();
+character = 'A' + (character - 'A' + encryptionKey + 26) %26;
+}
+if(character >= 'a' && character <= 'z')
+{
+encryptionKey = keyword[i] - 'a';
+i = (i + 1) % keyword.length();
+character = 'a' + (character - 'a' + encryptionKey + 26) %26;
+}
+endResult += character;
+}
+return endResult; //after processing the characters in relation to how it is encrypted, return the function
+
+}
+
+string decryptVigenere(string ciphertext, string keyword)
+{
+string endResult = "";
+
+char character;
+int i = 0;
+int decryptionKey;
+
+for(int k = 0; k < ciphertext.length(); k++) //use prior established integers and characters to decrypt the previously encrypted statement
+{
+character = ciphertext[k];
+
+if(character >= 'A' && character <= 'Z')
+{
+decryptionKey = keyword[i] - 'a';
+i = (i + 1) % keyword.length();
+character = 'A' + (character - 'A' - decryptionKey + 26) %26;
+}
+if(character >= 'a' && character <= 'z')
+{
+decryptionKey = keyword[i] - 'a';
+i = (i + 1) % keyword.length();
+character = 'a' + (character - 'a' - decryptionKey + 26) %26;
+}
+endResult += character;
+}
+return endResult; //returns the decrypted text based upon Vigenere decryption
+
+}
+
+int main(){
+       
+       string plaintext; //creates string for plaintext which will be the user input
+       string keyword; //creates string for keyword which will be the user input
+
+       int rshift;
+
+       cout << "Enter plaintext: ";
+       getline(cin, plaintext); //takes in user input while reading it
+
+       cout << "\n= Caesar =\n";
+
+       cout << "Enter shift: ";
+       cin >> rshift; //takes in user input for how the plaintext will be shifted for encryption
+
+       string cipher = encryptCaesar(plaintext, rshift);
+       cout << "Ciphertext: " << cipher << "\n"; //outputs the encrypted Caesar text
+
+       plaintext = decryptCaesar(cipher, rshift);
+       cout << "Decrypted: " << plaintext << endl; //outputs the decrypted text
+
+       cout << "\n= Vigenere =\n";
+       cout << "Enter keyword: ";
+       cin >> keyword;//takes in user input for keyword to encrypt Vigenere text
+
+       string cipher_text = encryptVigenere(plaintext, keyword);
+       cout << "Ciphertext: " << cipher_text << "\n";//outputs the encrypted Vigenere text
+       cout << "Decrypted: " << decryptVigenere(cipher_text, keyword) << endl;//outputs the decrypted text
+
+       return 0; //after outputting the encrypted Caesar and Vigenere texts, as well as the decrypted text, the program will end.
+
+}
