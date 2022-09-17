@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    cout << "Please enter an integer: " << endl; //ask user for integer
+    int integer;
+    cin >> integer; //store user input as integer
+
+    if (integer > 0 && integer < 100)
+    cout << "Number squared is: " << pow(integer,2) << endl; //use if statement to determine if integer fits the ruleset, then outputs the squared value of integer
+    while (integer <= 0 || integer >= 100)
+    {
+     cout << "Please re-enter: " << endl; //use while loop to ask user to re-enter integer if it doesn't fit the ruleset
+    int integer2;
+    cin >> integer2; //save new user value as another integer
+    if (integer2 > 0 && integer2 < 100)
+    {
+        cout << "Number squared is: " << pow(integer2, 2) << endl; //use nested loop to allow the program to check back to see if user inputs integer that fits ruleset; if not, then the program asks for the user to re-enter an integer until they input one that meets the rules.
+        return 0; //returns the function so that the program ends after a correct integer is utilized
+        
+    }
+    }
+     
+}
