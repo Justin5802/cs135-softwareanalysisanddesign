@@ -1,0 +1,25 @@
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    cout << "Please enter year: " << endl; //asks user to input year
+    int year;
+    cin >> year; //saves user input for the year
+
+    if (year % 4 != 0)
+       cout << "Common year" << endl;  //if the user input is not equal to zero when divisible by 4, then it is a common year
+    else if (year % 100 != 0)
+       cout << "Leap year" << endl;  //if the user input is not equal to zero when divisible by 100, then it is a leap year
+    else if (year % 400 != 0)
+       cout << "Common year" << endl; //if the user input is not equal to zero when divisible by 400, then it is a common year
+    else
+       cout << "Leap year" << endl; //otherwise, we can assume that the user input is a leap year if the previous if statements do not apply
+
+//never gonna give you up
+//never gonna let you down
+//never gonna run around and desert you
+    return 0;
+}
