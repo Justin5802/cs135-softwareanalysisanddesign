@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+cout << "Input width: " << endl;//asks user for input width
+int width;
+cin >> width;//saves as user input
+
+cout << "Input height: " << endl;//asks user for input height
+int height;
+cin >> height;//saves as user input
+
+char row = '*'; //saves astersisk symbol as character "row"
+char col = '*'; //saves asterisk symbol as character "col"
+for(int i = 1; i <= height; i++){ //uses for loop to compare variable i with height input
+col = row; //directly compares the characters
+for(int j = 1; j <= width; j++){//uses for loop to compare new variable j with inputted width
+cout << col; //outputs an asterisk based on context of for loop
+
+if(j % 3 == 0){
+if(col == '*')//checks if variable j divisble by 3 is equal to zero and if so, checkes if character "col" is an asterisk, in which it then outputs a space
+col = ' ';
+else
+col = '*'; //otherwise, an asterisk is outputted instead
+}
+}
+cout << endl; //after available space is filled, it ends the line
+
+if(i % 3 == 0){ //checks back to see if variable i divisible by 3 is equal to zero and if so, checks if character "row" is an asterisk, in which it then outputs a space
+if(row == '*')
+row = ' ';
+else
+row = '*';//otherwise, an asterisk is outputted instead
+}
+}
+return 0; //program ends after image has been completely outputted.
+}
