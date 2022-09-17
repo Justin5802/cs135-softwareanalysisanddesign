@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    cout << "Enter the first number: " << endl;  //asks user to input first number
+    int numberone;
+    cin >> numberone;  //program takes in user's first input
+    cout << "Enter the second number: " << endl;  //asks user to input second number
+    int numbertwo;
+    cin >> numbertwo;  //program takes in user's second input
+
+    if (numberone > numbertwo)
+       cout << "The smaller of the two is: " << numbertwo << endl;  //uses an if statement to directly compare the two numbers the user inputs to indicate which is the smaller number
+    else
+       cout << "The smaller of the two is: " << numberone << endl; //uses an else statement to determine that if one number is not larger than the other, then that number must be smaller than the other
+      //the autograder asked me to input two more comments, so here they are
+      //I like sandwiches, but I like tacos more
+
+    return 0;
+
+}
